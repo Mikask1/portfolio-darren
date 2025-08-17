@@ -78,7 +78,7 @@ function getIconForSkill(skill: string): IconType | null {
 		{ match: (v) => v.includes("gemini"), Icon: SiGoogle },
 		{ match: (v) => v.includes("llama"), Icon: SiMeta },
 		{ match: (v) => v.includes("anthropic"), Icon: SiAnthropic },
-		{ match: (v) => v.includes("deepseek") || v.includes("mixtral"), Icon: LuMessageSquare },
+		{ match: (v) => v.includes("deepseek") || v.includes("mixtral") || v.includes("moonshotai"), Icon: LuMessageSquare },
 		// AI/ML tools and concepts
 		{ match: (v) => v.includes("openrouter"), Icon: LuRoute },
 		{ match: (v) => v.includes("prompt engineering"), Icon: LuFileText },

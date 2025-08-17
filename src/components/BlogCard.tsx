@@ -41,8 +41,8 @@ export default function BlogCard({ p, i }: BlogCardProps) {
                 <Card className="group relative overflow-hidden border-border/10 bg-card/70 p-6 shadow-lg transition-all hover:shadow-xl hover:bg-card h-full">
                     <div className="flex items-start justify-between gap-4">
                         <div>
-                            <h3 className="text-xl font-semibold tracking-tight underline-ltr w-fit">{p.title}</h3>
-                            <p className="mt-1 text-sm text-muted-foreground whitespace-pre-line">{p.desc}</p>
+                            <h3 className="text-lg sm:text-xl font-semibold tracking-tight underline-ltr w-fit">{p.title}</h3>
+                            <p className="mt-1 text-xs sm:text-sm text-muted-foreground whitespace-pre-line">{p.desc}</p>
                         </div>
                         <div className="flex items-center">
                             {p.isExternal ? <LuExternalLink size={16} /> : <LuArrowRight size={16} />}

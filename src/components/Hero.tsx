@@ -28,7 +28,7 @@ export default function Hero() {
 
 	return (
 		<section id="home" className="relative">
-			<div className="container-px mx-auto max-w-6xl py-16 sm:py-24">
+			<div className="container-px mx-auto max-w-6xl py-16 pt-8 sm:py-24">
 				<div className="grid items-center gap-10 md:grid-cols-2">
 					<div className="relative">
 						<div className="inline-flex items-center gap-2 rounded-full border border-border/50 bg-card px-3 py-1 text-[12px] text-muted-foreground shadow-sm">

@@ -29,8 +29,8 @@ export default function BlogsPage() {
   const [featuredPost, ...otherPosts] = BLOG_POSTS;
 
   return (
-    <main className="container-px mx-auto max-w-5xl py-16">
-      <motion.h1 initial="hidden" animate="show" variants={container} className="text-3xl font-bold">
+    <main className="container-px mx-auto max-w-5xl py-8 sm:py-16">
+      <motion.h1 initial="hidden" animate="show" variants={container} className="text-2xl sm:text-3xl font-bold">
         {`Blog`.split(" ").map((word, i) => (
           <motion.span variants={item} key={i} className="inline-block">
             {word}&nbsp;
@@ -41,7 +41,7 @@ export default function BlogsPage() {
         initial={{ opacity: 0, y: 8 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.1 }}
-        className="mt-2 text-muted-foreground"
+        className="mt-2 text-sm sm:text-base text-muted-foreground"
       >
         Notes on AI, agents, LLMOps, and engineering craft.
       </motion.p>
@@ -50,7 +50,7 @@ export default function BlogsPage() {
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="text-xl font-semibold"
+          className="text-lg sm:text-xl font-semibold"
         >
           Featured Post
         </motion.h2>
@@ -63,7 +63,7 @@ export default function BlogsPage() {
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="text-xl font-semibold"
+          className="text-lg sm:text-xl font-semibold"
         >
           Other Posts
         </motion.h2>}

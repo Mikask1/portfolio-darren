@@ -1,7 +1,7 @@
 import Hero from "@/components/Hero";
+import BlogSection from "@/components/BlogSection";
 import ProjectsSection from "@/components/ProjectsSection";
 import Timeline from "@/components/Timeline";
-import BlogSection from "@/components/BlogSection";
 
 export default function Home() {
   return (

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Open_Sans } from "next/font/google";
 import { ThemeProvider } from "next-themes";
+import MotionProvider from "@/components/MotionProvider";
 import "./globals.css";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
@@ -24,11 +25,13 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en" suppressHydrationWarning>
-			<body className={`${openSans.variable} antialiased bg-background text-foreground`}> 
+			<body className={`${openSans.variable} antialiased bg-background text-foreground`}>
 				<ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
-					<NavBar />
-					<div className="pt-16 min-h-[calc(100vh-40px)]">{children}</div>
-					<Footer />
+					<MotionProvider>
+						<NavBar />
+						<div className="pt-16 min-h-[calc(100vh-40px)]">{children}</div>
+						<Footer />
+					</MotionProvider>
 				</ThemeProvider>
 			</body>
 		</html>

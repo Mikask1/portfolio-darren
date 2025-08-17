@@ -25,7 +25,7 @@ export default function NavBar() {
       }`}
     >
       <nav className="container-px mx-auto flex h-16 items-center justify-between">
-        <Link href="/#home" className="group inline-flex items-center gap-2">
+        <Link href="/#home" className="group inline-flex items-center gap-4">
           <span className="inline-flex h-8 w-8 items-center justify-center rounded-md bg-primary text-background font-bold shadow-[0_0_0_3px_var(--color-ring)]">
             D
           </span>
@@ -33,7 +33,7 @@ export default function NavBar() {
             Darren
           </span>
         </Link>
-        <div className="flex items-center gap-2 sm:gap-6 text-sm">
+        <div className="flex items-center gap-4 sm:gap-6 text-sm">
           <Link 
             href="/#home" 
             className={`hover:opacity-100 underline-ltr ${

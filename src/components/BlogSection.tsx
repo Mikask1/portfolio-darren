@@ -12,14 +12,14 @@ export default function BlogSection() {
   return (
     <section id="blog" className="relative">
       <div className="container-px mx-auto max-w-6xl py-20">
-        <div className="flex items-end justify-between gap-4">
-          <div>
-            <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">Blog</h2>
-            <p className="mt-2 text-muted-foreground">Thoughts on various technical topics in AI.</p>
+        <div>
+          <div className="flex items-end justify-between gap-4">
+            <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">Blogs</h2>
+            <Link href="/blogs" className="text-sm text-primary underline-ltr whitespace-nowrap self-start">
+              View all
+            </Link>
           </div>
-          <Link href="/blogs" className="text-sm text-primary underline-ltr">
-            View all
-          </Link>
+          <p className="mt-2 text-muted-foreground">Thoughts on various technical topics in AI.</p>
         </div>
         <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {displayPosts.map((p: Post, i: number) => (

@@ -19,7 +19,7 @@ type TimelineItem = {
 
 const TIMELINE: TimelineItem[] = [
 	{
-		year: "Feb 2025 - July 2025",
+		year: "Feb 2025 - present",
 		image: "/covena.png",
 		title: "AI Software Engineer",
 		subtitle: "Covena",
@@ -101,10 +101,10 @@ export default function Timeline() {
 					Interactive vertical timeline with animations as items come into view.
 				</p>
 				<div className="relative mt-10">
-					<div className="absolute left-5 top-0 bottom-0 w-px bg-border" />
+					<div className="absolute left-5 top-0 bottom-0 w-px bg-border hidden sm:block" />
 					<div className="flex flex-col gap-8">
-						{TIMELINE.map((item) => (
-							<TimelineRow key={item.title} item={item} />
+						{TIMELINE.map((item, idx) => (
+							<TimelineRow key={item.title} item={item} isLast={idx === TIMELINE.length - 1} />
 						))}
 					</div>
 				</div>
@@ -115,7 +115,7 @@ export default function Timeline() {
 
 
 
-function TimelineRow({ item }: { item: TimelineItem }) {
+function TimelineRow({ item, isLast }: { item: TimelineItem; isLast: boolean }) {
 	const { ref, controls } = useReveal();
 	return (
 		<motion.div
@@ -123,19 +123,46 @@ function TimelineRow({ item }: { item: TimelineItem }) {
 			initial={{ opacity: 0, y: 24 }}
 			animate={controls}
 			transition={{ duration: 0.6, ease: "easeOut" }}
-			className="relative pl-10 sm:pl-12"
+			className="relative sm:pl-12"
 		>
-			<div className="absolute left-5 top-1/2 size-4 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-background bg-accent shadow-[0_0_0_3px_var(--color-background)]" />
+			<div className="absolute left-5 top-1/2 size-4 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-background bg-accent shadow-[0_0_0_3px_var(--color-background)] hidden sm:block" />
 			<Card className="border-border/10 bg-card/50 p-5 shadow-xl backdrop-blur-sm">
-				<div className="flex items-start gap-4">
+				{/* Mobile Layout */}
+				<div className="sm:hidden">
+					<div className="flex items-center gap-3 mb-3">
+						<div className="relative aspect-square w-12 shrink-0 overflow-hidden border border-border/10 bg-white rounded-full shadow-md">
+							<Image src={item.image} alt="logo" fill className="object-contain p-2" />
+						</div>
+						<span className="font-semibold text-foreground">{item.subtitle}</span>
+					</div>
+					<div className="text-sm text-muted-foreground mb-3">{item.year}</div>
+					<h3 className="text-lg font-semibold mb-3">{item.title}</h3>
+					{item.bullets ? (
+						<ul className="ml-5 list-disc space-y-1 text-sm text-muted-foreground mb-3">
+							{item.bullets.map((bullet, idx) => (
+								<li key={idx}>{bullet}</li>
+							))}
+						</ul>
+					) : (
+						<p className="text-sm text-muted-foreground mb-3">{item.description}</p>
+					)}
+					<div className="flex flex-wrap gap-1.5">
+						{item.skills.map((s) => (
+							<SkillBadge key={s} skill={s} />
+						))}
+					</div>
+				</div>
+
+				{/* Desktop Layout */}
+				<div className="hidden sm:flex items-start gap-4">
 					<div className="relative aspect-square w-16 shrink-0 overflow-hidden border border-border/10 bg-white rounded-full shadow-md">
 						<Image src={item.image} alt="logo" fill className="object-contain p-2" />
 					</div>
 					<div>
 						<div className="flex items-center gap-2 text-sm text-muted-foreground">
-							<span className="font-semibold text-foreground">{item.year}</span>
+							<span className="font-semibold text-foreground">{item.subtitle}</span>
 							<span>•</span>
-							<span>{item.subtitle}</span>
+							<span>{item.year}</span>
 						</div>
 						<h3 className="mt-1 text-lg font-semibold">{item.title}</h3>
 						{item.bullets ? (

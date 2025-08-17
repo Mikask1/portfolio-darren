@@ -13,9 +13,9 @@ const openSans = Open_Sans({
 });
 
 export const metadata: Metadata = {
-	title: "Darren Prasetya — AI Software Engineer",
+	title: "Darren Prasetya",
 	description:
-		"Portfolio of Darren Prasetya: Agentic AI Engineer, LLMOps Engineer, and Software Developer.",
+		"Portfolio of Darren Prasetya",
 };
 
 export default function RootLayout({

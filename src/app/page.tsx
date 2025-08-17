@@ -2,7 +2,6 @@ import Hero from "@/components/Hero";
 import ProjectsSection from "@/components/ProjectsSection";
 import Timeline from "@/components/Timeline";
 import BlogSection from "@/components/BlogSection";
-import SkillsSection from "@/components/SkillsSection";
 
 export default function Home() {
   return (
@@ -27,7 +26,6 @@ export default function Home() {
       <Timeline />
       <ProjectsSection />
       <BlogSection />
-      <SkillsSection />
     </main>
   );
 }

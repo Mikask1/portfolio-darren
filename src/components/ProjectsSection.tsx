@@ -2,14 +2,15 @@
 
 import Image from "next/image";
 import { Card } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+import SkillBadge from "@/components/SkillBadge";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { LuExternalLink, LuGithub } from "react-icons/lu";
+import { LuCode, LuExternalLink } from "react-icons/lu";
+import { JSX } from "react";
 
 type Project = {
 	title: string;
-	description: string;
+	description: string | JSX.Element[];
 	tags: string[];
 	image?: string;
 	github?: string;
@@ -18,29 +19,26 @@ type Project = {
 
 const PROJECTS: Project[] = [
 	{
-		title: "Autonomous Research Agent",
-		description:
-			"Multi-agent system with tools, memory, and evaluation for deep-dive research workflows.",
-		tags: ["TypeScript", "LangGraph", "OpenAI", "RAG"],
-		image: "/globe.svg",
-		github: "https://github.com/darren/autonomous-research-agent",
-		demo: "https://example.com/research-agent",
+		title: "Mixture of Experts CNN Model",
+		description: [
+			<>Achieved <strong>99.78% accuracy</strong> on MNIST; ~#7 on Papers with Code.</>,
+			<><strong>2,247,151</strong> parameters; <strong>674,145</strong> effective parameters.</>,
+			<>Staged training: <strong>Adam 0.001</strong> → <strong>SGD 0.01→0.001</strong> with SAM.</>,
+		],
+		tags: ["PyTorch", "Pandas", "Sharpness-Aware Minimization", "Adam", "SGD"],
+		image: "/moe.png",
+		github: "https://huggingface.co/Mikask/moe-cnn",
 	},
 	{
-		title: "Realtime Voice Agent",
-		description:
-			"Streaming bidirectional voice assistant with function calling and low-latency synthesis.",
-		tags: ["Next.js", "WebRTC", "Vercel AI SDK"],
-		image: "/vercel.svg",
-		github: "https://github.com/darren/realtime-voice-agent",
-	},
-	{
-		title: "Prompt Registry & Eval Dashboard",
-		description:
-			"Versioned prompts, datasets, and eval runs with robust telemetry and reporting.",
-		tags: ["LLMOps", "Postgres", "OpenTelemetry"],
-		image: "/window.svg",
-		demo: "https://example.com/llmops-dashboard",
+		title: "State-of-the-art Javanese to Indonesian Translation Model",
+		description: [
+			<>Team of 3; stack: <strong>TensorFlow</strong>, <strong>SentenceTransformers</strong>.</>,
+			<><strong>BLEU 20.31</strong> vs Google <strong>9.04</strong>, DeepL <strong>9.49</strong>, ChatGPT-3.5 Turbo <strong>11.71</strong>.</>,
+			<>Data via Selenium from Google Translate; benchmarked vs DeepL.</>,
+		],
+		tags: ["TensorFlow", "SentenceTransformers", "Selenium", "BLEU"],
+		image: "/translate.png",
+		github: "http://Mikask/indobart-indonlg-nusax-500-jv-id",
 	},
 ];
 
@@ -60,9 +58,9 @@ export default function ProjectsSection() {
 							transition={{ duration: 0.5, delay: i * 0.06 }}
 						>
 							<Card className="group relative overflow-hidden border-border/10 bg-card/70 p-4 shadow-lg transition-all hover:shadow-xl">
-								<div className="relative mb-3 aspect-video overflow-hidden rounded-md border border-border/10 bg-accent-foreground shadow-sm">
+								<div className="relative aspect-video overflow-hidden rounded-md border border-border/10 bg-accent-foreground shadow-sm">
 									{p.image ? (
-										<Image src={p.image} alt={p.title} fill className="object-contain p-6" />
+										<Image src={p.image} alt={p.title} fill className="object-contain p-6 dark:invert" />
 									) : (
 										<div className="flex h-full w-full items-center justify-center text-sm text-muted-foreground">
 											No image
@@ -71,19 +69,25 @@ export default function ProjectsSection() {
 									<div className="pointer-events-none absolute -right-10 -top-10 size-24 rounded-full bg-accent/20 blur-2xl transition-transform group-hover:translate-x-2 group-hover:-translate-y-1" />
 								</div>
 								<h3 className="text-lg font-semibold leading-tight">{p.title}</h3>
-								<p className="mt-2 text-sm text-muted-foreground">{p.description}</p>
-								<div className="mt-3 flex flex-wrap gap-1.5">
+								{Array.isArray(p.description) ? (
+									<ul className="ml-5 list-disc space-y-1 text-sm text-muted-foreground">
+										{p.description.map((line, idx) => (
+											<li key={idx}>{line}</li>
+										))}
+									</ul>
+								) : (
+									<p className="mt-2 text-sm text-muted-foreground">{p.description}</p>
+								)}
+								<div className="flex flex-wrap gap-1.5">
 									{p.tags.map((t) => (
-										<Badge key={t} variant="secondary" className="border border-border/10">
-											{t}
-										</Badge>
+										<SkillBadge key={t} skill={t} />
 									))}
 								</div>
-								<div className="mt-4 flex gap-2">
+								<div className="flex gap-2">
 									{p.github ? (
 										<Button asChild variant="outline" size="sm">
 											<a href={p.github} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2">
-												<LuGithub size={16} /> Code
+												<LuCode size={16} /> Code
 											</a>
 										</Button>
 									) : null}

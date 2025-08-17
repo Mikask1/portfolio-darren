@@ -1,70 +1,82 @@
 "use client";
 
 import { motion, useAnimation, useInView } from "framer-motion";
-import { useEffect, useRef } from "react";
+import { JSX, useEffect, useRef } from "react";
 import Image from "next/image";
-import { Badge } from "@/components/ui/badge";
+import SkillBadge from "@/components/SkillBadge";
 import { Card } from "@/components/ui/card";
 
 type TimelineItem = {
-	year: number;
+	year: string;
 	image: string;
 	title: string;
 	subtitle: string;
-	description: string;
+	description?: string;
+	bullets?: JSX.Element[];
 	skills: string[];
 	projects?: { name: string; link?: string }[];
 };
 
 const TIMELINE: TimelineItem[] = [
 	{
-		year: 2025,
-		image: "/next.svg",
-		title: "Senior Agentic AI Engineer",
-		subtitle: "Leading AI Platforms",
-		description:
-			"Architected multi-agent systems with tool-use, memory, and evaluation loops. Scaled LLMOps across environments.",
-		skills: ["TypeScript", "Python", "Next.js", "OpenAI", "LangGraph", "RAG"],
-		projects: [
-			{ name: "Autonomous Research Agent" },
-			{ name: "Realtime Voice Agent" },
+		year: "Feb 2025 - July 2025",
+		image: "/covena.png",
+		title: "AI Software Engineer",
+		subtitle: "Covena",
+		bullets: [
+			<>Built a <strong>full-stack Agentic LLM sales representative</strong> using <strong>LangChain/LangGraph</strong> with <strong>OpenRouter</strong>, <strong>OpenAI</strong>, <strong>Gemini</strong>, <strong>Anthropic</strong>, <strong>DeepSeek</strong>, <strong>Llama</strong>, and <strong>Mixtral</strong>.</>,
+			<>Led a <strong>meta-learning agent</strong> that autonomously diagnoses and optimizes other agents, reducing manual <strong>prompt engineering</strong> work.</>,
+			<>Owned the <strong>LLMOps pipeline</strong> for monitoring/observability, eval/feedback loops, and prompt management using <strong>DeepEval</strong> and <strong>LangSmith</strong>.</>,
+			<>Researched state-of-the-art retrieval for general-purpose <strong>RAG</strong> with <strong>knowledge graphs</strong>.</>,
 		],
+		skills: ["LangChain", "LangGraph", "OpenRouter", "OpenAI", "Anthropic", "Gemini", "DeepSeek", "Llama", "Mixtral", "DeepEval", "LangSmith", "RAG", "Knowledge Graphs", "LLMOps"],
 	},
 	{
-		year: 2024,
-		image: "/vercel.svg",
-		title: "LLMOps Engineer",
-		subtitle: "Production LLM Pipelines",
-		description:
-			"Built observability, evaluation, and prompt/version management. Delivered low-latency inference services.",
-		skills: ["LLMOps", "OpenTelemetry", "Vercel AI SDK", "Postgres"],
-		projects: [{ name: "Prompt Registry" }, { name: "Eval Dashboard" }],
+		year: "May 2024 - May 2025",
+		image: "/bengcare.png",
+		title: "Co-Founder and Chief Executive Officer",
+		subtitle: "BengCare",
+		bullets: [
+			<>Secured <strong>$10,000 pre-seed funding</strong> from Google.</>,
+			<>Built a latent-factor <strong>collaborative filtering</strong> recommender optimizing regularized MSE with <strong>Adam</strong> in <strong>TensorFlow</strong>.</>,
+			<>Shipped full-stack apps with <strong>TypeScript</strong>, <strong>Next.js</strong>, <strong>FastAPI</strong>, and <strong>PostgreSQL</strong>.</>,
+			<>Managed up to <strong>15 employees</strong> across Product, Sales, and Marketing.</>,
+		],
+		skills: ["TensorFlow", "TypeScript", "Next.js", "FastAPI", "PostgreSQL", "Collaborative Filtering"],
 	},
 	{
-		year: 2023,
-		image: "/globe.svg",
-		title: "Software Developer",
-		subtitle: "Full-Stack Product Work",
-		description:
-			"Shipped features end-to-end with strong UX and performance focus. Owned monitoring and release pipelines.",
-		skills: ["React", "Node.js", "Prisma", "tRPC"],
-		projects: [{ name: "Design System" }, { name: "Message Broker" }],
+		year: "Aug 2024 - Feb 2025",
+		image: "/traveloka.png",
+		title: "Implementation Engineer Intern",
+		subtitle: "Traveloka",
+		bullets: [
+			<>Built backend services with <strong>Java</strong> and <strong>Spring Boot 3</strong>, using <strong>AWS Aurora</strong>; tested with <strong>JUnit 5</strong>, <strong>TestNG</strong>, and <strong>Mockito</strong> in UNIX.</>,
+			<>Led <strong>25%</strong> of outdated Spring Boot services migration with measurable performance gains.</>,
+			<>Refactored <strong>51 repositories</strong> to align with engineering best practices.</>,
+		],
+		skills: ["Java", "Spring Boot", "AWS Aurora", "JUnit", "TestNG", "Mockito", "UNIX"],
 	},
 	{
-		year: 2022,
-		image: "/window.svg",
-		title: "AI Intern",
-		subtitle: "Applied ML",
-		description: "Explored vector databases, embeddings, and evaluation for retrieval use-cases.",
-		skills: ["Pinecone", "FAISS", "Weights & Biases"],
+		year: "August 2022 - June 2023",
+		image: "/mulaicoding.png",
+		title: "Software Engineer Intern",
+		subtitle: "Mulai Coding Inc",
+		bullets: [
+			<>Built web apps with <strong>TypeScript</strong>, <strong>Next.js</strong> (frontend), and <strong>Express.js</strong> (backend); tested with <strong>Jest</strong> and deployed on <strong>GCP</strong>.</>,
+			<>Increased site loading speed by <strong>270%</strong> by migrating from Wix to <strong>Next.js</strong>, <strong>Express.js</strong>, and <strong>BigQuery</strong>.</>,
+		],
+		skills: ["TypeScript", "Next.js", "Express.js", "Jest", "GCP", "BigQuery"],
 	},
 	{
-		year: 2021,
-		image: "/file.svg",
-		title: "Student Developer",
-		subtitle: "Foundations",
-		description: "Laid core CS foundations and shipped early personal projects.",
-		skills: ["Algorithms", "Data Structures", "Git"],
+		year: "August 2021 - August 2025",
+		image: "/its.png",
+		title: "Bachelor of Computer Science",
+		subtitle: "Sepuluh Nopember Institute of Technology",
+		bullets: [
+			<>Cumulative GPA: <strong>3.72/4.0</strong></>,
+			<>Expected graduation: <strong>August 2025</strong></>,
+		],
+		skills: []
 	},
 ];
 
@@ -92,7 +104,7 @@ export default function Timeline() {
 					<div className="absolute left-5 top-0 bottom-0 w-px bg-border" />
 					<div className="flex flex-col gap-8">
 						{TIMELINE.map((item) => (
-							<TimelineRow key={item.year} item={item} />
+							<TimelineRow key={item.title} item={item} />
 						))}
 					</div>
 				</div>
@@ -100,6 +112,8 @@ export default function Timeline() {
 		</section>
 	);
 }
+
+
 
 function TimelineRow({ item }: { item: TimelineItem }) {
 	const { ref, controls } = useReveal();
@@ -111,10 +125,10 @@ function TimelineRow({ item }: { item: TimelineItem }) {
 			transition={{ duration: 0.6, ease: "easeOut" }}
 			className="relative pl-10 sm:pl-12"
 		>
-			<div className="absolute left-5 top-2 size-4 -translate-x-1/2 rounded-full border-2 border-background bg-accent shadow-[0_0_0_3px_var(--color-background)]" />
+			<div className="absolute left-5 top-1/2 size-4 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-background bg-accent shadow-[0_0_0_3px_var(--color-background)]" />
 			<Card className="border-border/10 bg-card/50 p-5 shadow-xl backdrop-blur-sm">
 				<div className="flex items-start gap-4">
-					<div className="relative aspect-square w-16 shrink-0 overflow-hidden rounded-lg border border-border/10 bg-muted shadow-md">
+					<div className="relative aspect-square w-16 shrink-0 overflow-hidden border border-border/10 bg-white rounded-full shadow-md">
 						<Image src={item.image} alt="logo" fill className="object-contain p-2" />
 					</div>
 					<div>
@@ -124,12 +138,18 @@ function TimelineRow({ item }: { item: TimelineItem }) {
 							<span>{item.subtitle}</span>
 						</div>
 						<h3 className="mt-1 text-lg font-semibold">{item.title}</h3>
-						<p className="mt-2 text-sm text-muted-foreground">{item.description}</p>
+						{item.bullets ? (
+							<ul className="mt-2 ml-5 list-disc space-y-1 text-sm text-muted-foreground">
+								{item.bullets.map((bullet, idx) => (
+									<li key={idx}>{bullet}</li>
+								))}
+							</ul>
+						) : (
+							<p className="mt-2 text-sm text-muted-foreground">{item.description}</p>
+						)}
 						<div className="mt-3 flex flex-wrap gap-1.5">
 							{item.skills.map((s) => (
-								<Badge key={s} variant="secondary" className="border border-border/10">
-									{s}
-								</Badge>
+								<SkillBadge key={s} skill={s} />
 							))}
 						</div>
 					</div>

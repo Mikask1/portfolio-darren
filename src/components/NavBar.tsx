@@ -18,9 +18,9 @@ export default function NavBar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 w-full transition-colors ${
+      className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 ${
         isScrolled
-          ? "bg-background/80 backdrop-blur-md border-b border-border/50"
+          ? "bg-background/70 backdrop-blur-xl border-b border-border/30 shadow-lg shadow-background/20"
           : "bg-transparent"
       }`}
     >
@@ -34,13 +34,22 @@ export default function NavBar() {
           </span>
         </Link>
         <div className="flex items-center gap-2 sm:gap-6 text-sm">
-          <Link href="/#home" className="hover:opacity-100 opacity-80 underline-ltr">
+          <Link 
+            href="/#home" 
+            className={`hover:opacity-100 underline-ltr ${
+              pathname === "/" ? "opacity-100 underline-active" : "opacity-80"
+            }`}
+          >
             Home
           </Link>
-          <Link href="/#timeline" className="hover:opacity-100 opacity-80 underline-ltr">
-            Timeline
+          <Link 
+            href="/blogs" 
+            className={`hover:opacity-100 underline-ltr ${
+              pathname === "/blogs" ? "opacity-100 underline-active" : "opacity-80"
+            }`}
+          >
+            Blogs
           </Link>
-          <Link href="/blogs" className="hover:opacity-100 opacity-80 underline-ltr">Blogs</Link>
           <a
             href="mailto:darrenprasetya40@gmail.com"
             className="hover:opacity-100 opacity-80 underline-ltr"

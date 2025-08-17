@@ -31,7 +31,7 @@ export default function BlogSection() {
 						<h2 className="text-2xl font-bold tracking-tight sm:text-3xl">Blog</h2>
 						<p className="mt-2 text-muted-foreground">Thoughts on AI systems, LLMOps, and delightful UX.</p>
 					</div>
-					<Link href="#" className="text-sm text-primary underline-ltr">
+					<Link href="/blogs" className="text-sm text-primary underline-ltr">
 						View all
 					</Link>
 				</div>
@@ -48,9 +48,7 @@ export default function BlogSection() {
 								<Card className="group relative h-full overflow-hidden border-border/10 bg-card/70 p-5 shadow-lg transition-shadow hover:shadow-xl">
 									<h3 className="text-lg font-semibold leading-tight">{p.title}</h3>
 									<p className="mt-2 text-sm text-muted-foreground">{p.desc}</p>
-									<span className="mt-4 inline-flex text-sm text-primary underline-ltr w-fit">
-										Read more →
-									</span>
+									<span className="mt-4 inline-flex text-sm text-primary underline-ltr w-fit">Read more →</span>
 									<div className="pointer-events-none absolute -right-10 -top-10 size-24 rounded-full bg-accent/20 blur-2xl transition-transform group-hover:translate-x-2 group-hover:-translate-y-1" />
 								</Card>
 							</Link>

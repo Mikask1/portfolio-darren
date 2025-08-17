@@ -24,9 +24,9 @@ const TIMELINE: TimelineItem[] = [
 		title: "AI Software Engineer",
 		subtitle: "Covena",
 		bullets: [
-			<>Built a <strong>full-stack Agentic LLM sales representative</strong> using <strong>LangChain/LangGraph</strong> with <strong>OpenRouter</strong>, <strong>OpenAI</strong>, <strong>Gemini</strong>, <strong>Anthropic</strong>, <strong>DeepSeek</strong>, <strong>Llama</strong>, and <strong>Mixtral</strong>.</>,
-			<>Led a <strong>meta-learning agent</strong> that autonomously diagnoses and optimizes other agents, reducing manual <strong>prompt engineering</strong> work.</>,
-			<>Owned the <strong>LLMOps pipeline</strong> for monitoring/observability, eval/feedback loops, and prompt management using <strong>DeepEval</strong> and <strong>LangSmith</strong>.</>,
+			<>Contributed to the development of a <strong>full-stack Agentic LLM sales representative</strong> using <strong>LangChain/LangGraph</strong> with <strong>OpenRouter</strong>, <strong>OpenAI</strong>, <strong>Gemini</strong>, <strong>Anthropic</strong>, <strong>DeepSeek</strong>, <strong>Llama</strong>, and <strong>Mixtral</strong>.</>,
+			<>Led the development of a <strong>meta-learning agent</strong> that autonomously diagnoses and optimizes other agents, reducing manual <strong>prompt engineering</strong> work.</>,
+			<>Contributed to the <strong>LLMOps pipeline</strong> for monitoring/observability, eval/feedback loops, and prompt management using <strong>DeepEval</strong> and <strong>LangSmith</strong>.</>,
 			<>Researched state-of-the-art retrieval for general-purpose <strong>RAG</strong> with <strong>knowledge graphs</strong>.</>,
 		],
 		skills: ["LangChain", "LangGraph", "OpenRouter", "OpenAI", "Anthropic", "Gemini", "DeepSeek", "Llama", "Mixtral", "DeepEval", "LangSmith", "RAG", "Knowledge Graphs", "LLMOps"],
@@ -50,8 +50,8 @@ const TIMELINE: TimelineItem[] = [
 		title: "Implementation Engineer Intern",
 		subtitle: "Traveloka",
 		bullets: [
-			<>Built backend services with <strong>Java</strong> and <strong>Spring Boot 3</strong>, using <strong>AWS Aurora</strong>; tested with <strong>JUnit 5</strong>, <strong>TestNG</strong>, and <strong>Mockito</strong> in UNIX.</>,
-			<>Led <strong>25%</strong> of outdated Spring Boot services migration with measurable performance gains.</>,
+			<>Contributed to backend services with <strong>Java</strong> and <strong>Spring Boot 3</strong>, using <strong>AWS Aurora</strong>; tested with <strong>JUnit 5</strong>, <strong>TestNG</strong>, and <strong>Mockito</strong> in UNIX.</>,
+			<>Contributed to <strong>25%</strong> of migration of outdated Spring Boot services with measurable performance gains.</>,
 			<>Refactored <strong>51 repositories</strong> to align with engineering best practices.</>,
 		],
 		skills: ["Java", "Spring Boot", "AWS Aurora", "JUnit", "TestNG", "Mockito", "UNIX"],

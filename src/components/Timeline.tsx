@@ -98,7 +98,7 @@ export default function Timeline() {
 			<div className="container-px mx-auto max-w-4xl py-20">
 				<h2 className="text-2xl font-bold tracking-tight sm:text-3xl">Experience</h2>
 				<p className="mt-2 text-muted-foreground">
-					Interactive vertical timeline with animations as items come into view.
+					Work experiences and personal impact
 				</p>
 				<div className="relative mt-10">
 					<div className="absolute left-5 top-0 bottom-0 w-px bg-border hidden sm:block" />

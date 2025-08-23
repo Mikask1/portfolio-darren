@@ -31,8 +31,8 @@ export default function Hero() {
 	const gentleZoom = useTransform(imageHoveredMotion, [0, 1], [1, 1.15]);
 
 	// Only apply movement when hovered - using multiplication approach
-	const floatX = useTransform([baseFloatX, imageHoveredMotion], ([move, hovered]: any) => Number(move) * Number(hovered));
-	const floatY = useTransform([baseFloatY, imageHoveredMotion], ([move, hovered]: any) => Number(move) * Number(hovered));
+	const floatX = useTransform([baseFloatX, imageHoveredMotion], ([move, hovered]) => Number(move) * Number(hovered));
+	const floatY = useTransform([baseFloatY, imageHoveredMotion], ([move, hovered]) => Number(move) * Number(hovered));
 
 	// Quick-returning springs that reset immediately
 	const smoothFloatX = useSpring(floatX, { stiffness: 300, damping: 25 });
@@ -148,7 +148,7 @@ export default function Hero() {
 									}}
 									className="h-full w-full relative"
 									onMouseMove={(e) => {
-										const { left, top, width, height } = e.currentTarget.getBoundingClientRect();
+										const { left, top } = e.currentTarget.getBoundingClientRect();
 										imageMouseX.set(e.clientX - left);
 										imageMouseY.set(e.clientY - top);
 									}}

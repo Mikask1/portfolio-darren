@@ -103,8 +103,8 @@ export default function Timeline() {
 				<div className="relative mt-10">
 					<div className="absolute left-5 top-0 bottom-0 w-px bg-border hidden sm:block [mask-image:linear-gradient(to_bottom,transparent_0,white_12%,white_88%,transparent_100%)]" />
 					<div className="flex flex-col gap-8">
-						{TIMELINE.map((item, idx) => (
-							<TimelineRow key={item.title} item={item} isLast={idx === TIMELINE.length - 1} />
+						{TIMELINE.map((item) => (
+							<TimelineRow key={item.title} item={item} />
 						))}
 					</div>
 				</div>
@@ -115,7 +115,7 @@ export default function Timeline() {
 
 
 
-function TimelineRow({ item, isLast }: { item: TimelineItem; isLast: boolean }) {
+function TimelineRow({ item }: { item: TimelineItem }) {
 	const { ref, controls } = useReveal();
 	return (
 		<motion.div

@@ -52,7 +52,7 @@ export default function BlogsPage() {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="text-lg sm:text-xl font-semibold"
         >
-          Featured Post
+          Featured Posts
         </motion.h2>
         <motion.div variants={container} initial="hidden" animate="show" className="mt-4">
           <BlogCard p={featuredPost} i={0} />

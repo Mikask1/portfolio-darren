@@ -101,7 +101,7 @@ export default function Timeline() {
 					Work experiences and personal impact
 				</p>
 				<div className="relative mt-10">
-					<div className="absolute left-5 top-0 bottom-0 w-px bg-border hidden sm:block" />
+					<div className="absolute left-5 top-0 bottom-0 w-px bg-border hidden sm:block [mask-image:linear-gradient(to_bottom,transparent_0,white_12%,white_88%,transparent_100%)]" />
 					<div className="flex flex-col gap-8">
 						{TIMELINE.map((item, idx) => (
 							<TimelineRow key={item.title} item={item} isLast={idx === TIMELINE.length - 1} />
@@ -126,7 +126,8 @@ function TimelineRow({ item, isLast }: { item: TimelineItem; isLast: boolean }) 
 			className="relative sm:pl-12"
 		>
 			<div className="absolute left-5 top-1/2 size-4 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-background bg-accent shadow-[0_0_0_3px_var(--color-background)] hidden sm:block" />
-			<Card className="border-border/10 bg-card/50 p-5 shadow-xl backdrop-blur-sm">
+			<motion.div whileHover={{ scale: 1.02 }} transition={{ duration: 0.2 }} className="will-change-transform">
+				<Card className="border-border/10 bg-card/50 p-5 shadow-xl backdrop-blur-sm">
 				{/* Mobile Layout */}
 				<div className="sm:hidden">
 					<div className="flex items-center gap-3 mb-3">
@@ -181,7 +182,8 @@ function TimelineRow({ item, isLast }: { item: TimelineItem; isLast: boolean }) 
 						</div>
 					</div>
 				</div>
-			</Card>
+				</Card>
+			</motion.div>
 		</motion.div>
 	);
 }

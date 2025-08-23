@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { motion, AnimatePresence, useMotionValue, useMotionTemplate } from "framer-motion";
+import { motion, AnimatePresence, useMotionValue, useMotionTemplate, useTransform, useSpring } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { LuGithub, LuLinkedin } from "react-icons/lu";
@@ -19,6 +19,25 @@ export default function Hero() {
 	const [isHovered, setIsHovered] = useState(false);
 	const mouseX = useMotionValue(0);
 	const mouseY = useMotionValue(0);
+
+	// Motion values for 3D tilt effect
+	const imageMouseX = useMotionValue(0);
+	const imageMouseY = useMotionValue(0);
+	const imageHoveredMotion = useMotionValue(0);
+
+	// Enhanced floating effect - image follows mouse (reversed direction)
+	const baseFloatX = useTransform(imageMouseX, [0, 360], [20, -20]);
+	const baseFloatY = useTransform(imageMouseY, [0, 480], [20, -20]);
+	const gentleZoom = useTransform(imageHoveredMotion, [0, 1], [1, 1.15]);
+
+	// Only apply movement when hovered - using multiplication approach
+	const floatX = useTransform([baseFloatX, imageHoveredMotion], ([move, hovered]: any) => Number(move) * Number(hovered));
+	const floatY = useTransform([baseFloatY, imageHoveredMotion], ([move, hovered]: any) => Number(move) * Number(hovered));
+
+	// Quick-returning springs that reset immediately
+	const smoothFloatX = useSpring(floatX, { stiffness: 300, damping: 25 });
+	const smoothFloatY = useSpring(floatY, { stiffness: 300, damping: 25 });
+	const smoothGentleZoom = useSpring(gentleZoom, { stiffness: 300, damping: 25 });
 
 	useEffect(() => {
 		if (isHovered) return;
@@ -80,10 +99,10 @@ export default function Hero() {
 									</Tooltip>
 								))}
 							</TooltipProvider>
-							<Button asChild className="ml-2 glass-glow">
+							<Button asChild className="ml-2 glass-glow transition-transform hover:scale-105 active:scale-[0.98]">
 								<a href="mailto:darrenprasetya40@gmail.com">Contact me</a>
 							</Button>
-							<Button asChild variant="outline" className="glass-glow">
+							<Button asChild variant="outline" className="glass-glow transition-transform hover:scale-105 active:scale-[0.98]">
 								<a href="https://docs.google.com/document/d/1j2mMwVqBXA0Xe8mZLh0Ozkv-rJcuz31LMBWSD5SqAbo/edit?usp=sharing" target="_blank" rel="noreferrer">View CV</a>
 							</Button>
 						</div>
@@ -97,6 +116,14 @@ export default function Hero() {
 								const { left, top } = e.currentTarget.getBoundingClientRect();
 								mouseX.set(e.clientX - left);
 								mouseY.set(e.clientY - top);
+							}}
+							onMouseEnter={() => {
+								imageHoveredMotion.set(1);
+							}}
+							onMouseLeave={() => {
+								imageHoveredMotion.set(0);
+								imageMouseX.set(180);
+								imageMouseY.set(240);
 							}}
 						>
 							<motion.div
@@ -112,18 +139,32 @@ export default function Hero() {
 								}}
 							/>
 							<div className="absolute -inset-16 -z-10 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-accent/40 via-transparent to-transparent" />
-							<div className="relative h-full w-full rounded-xl bg-card/70">
-								<Image
-									src="/darren.jpg"
-									alt="Darren full-body"
-									fill
-									className="object-contain rounded-xl"
-									priority
-									onError={(e) => {
-										// Hide image if not provided
-										(e.target as HTMLImageElement).style.display = "none";
+							<div className="relative h-full w-full rounded-xl bg-card/70 overflow-hidden">
+								<motion.div
+									style={{
+										x: smoothFloatX,
+										y: smoothFloatY,
+										scale: smoothGentleZoom,
 									}}
-								/>
+									className="h-full w-full relative"
+									onMouseMove={(e) => {
+										const { left, top, width, height } = e.currentTarget.getBoundingClientRect();
+										imageMouseX.set(e.clientX - left);
+										imageMouseY.set(e.clientY - top);
+									}}
+								>
+									<Image
+										src="/darren.jpg"
+										alt="Darren full-body"
+										fill
+										className="object-contain rounded-xl"
+										priority
+										onError={(e) => {
+											// Hide image if not provided
+											(e.target as HTMLImageElement).style.display = "none";
+										}}
+									/>
+								</motion.div>
 								<div className="absolute inset-0 -z-10 bg-[url('/grid.svg')] opacity-10 [mask-image:radial-gradient(white,transparent_70%)]" />
 							</div>
 						</div>

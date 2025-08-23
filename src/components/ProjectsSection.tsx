@@ -56,11 +56,13 @@ export default function ProjectsSection() {
 							whileInView={{ opacity: 1, y: 0 }}
 							viewport={{ once: true, margin: "-80px" }}
 							transition={{ duration: 0.5, delay: i * 0.06 }}
+							whileHover={{ scale: 1.02 }}
+							className="will-change-transform"
 						>
 							<Card className="group relative overflow-hidden border-border/20 p-4 shadow-lg glass-hover-scale glass-glow">
 								<div className="relative aspect-video overflow-hidden rounded-md border border-border/10 bg-accent-foreground shadow-sm">
 									{p.image ? (
-										<Image src={p.image} alt={p.title} fill className="object-contain p-6 dark:invert" />
+										<Image src={p.image} alt={p.title} fill className="object-contain p-6 dark:invert transition-transform duration-300 group-hover:scale-105" />
 									) : (
 										<div className="flex h-full w-full items-center justify-center text-sm text-muted-foreground">
 											No image

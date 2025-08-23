@@ -157,6 +157,7 @@ export default function Hero() {
 										src="/darren.jpg"
 										alt="Darren full-body"
 										fill
+										sizes="(min-width: 768px) 360px, 85vw"
 										className="object-contain rounded-xl"
 										priority
 										onError={(e) => {

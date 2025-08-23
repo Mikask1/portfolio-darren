@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import BlogCard from "./BlogCard";
+import BlogCard from "./BlogCardWrapper";
 import { BLOG_POSTS, Post } from "@/lib/blogData";
 
 export default function BlogSection() {
@@ -15,7 +15,7 @@ export default function BlogSection() {
         <div>
           <div className="flex items-end justify-between gap-4">
             <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">Blogs</h2>
-            <Link href="/blogs" className="text-sm text-primary underline-ltr whitespace-nowrap self-start">
+            <Link href="/blogs" prefetch={false} className="text-sm text-primary underline-ltr whitespace-nowrap self-start">
               View all
             </Link>
           </div>

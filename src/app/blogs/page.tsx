@@ -1,6 +1,6 @@
 "use client";
 
-import BlogCard from "@/components/BlogCard";
+import BlogCard from "@/components/BlogCardWrapper";
 import { BLOG_POSTS, Post } from "@/lib/blogData";
 import { motion } from "framer-motion";
 

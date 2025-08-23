@@ -3,13 +3,15 @@ import { Open_Sans } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 import MotionProvider from "@/components/MotionProvider";
 import "./globals.css";
-import NavBar from "@/components/NavBar";
+import NavBar from "@/components/NavBarWrapper";
 import Footer from "@/components/Footer";
 
 const openSans = Open_Sans({
 	variable: "--font-open-sans",
 	subsets: ["latin"],
-	weight: ["300", "400", "500", "600", "700", "800"],
+	weight: ["400", "600", "700"],
+	display: "swap",
+	preload: true,
 });
 
 export const metadata: Metadata = {

@@ -1,7 +1,38 @@
+import dynamic from "next/dynamic";
 import Hero from "@/components/Hero";
-import BlogSection from "@/components/BlogSection";
-import ProjectsSection from "@/components/ProjectsSection";
-import Timeline from "@/components/Timeline";
+import { Metadata } from "next";
+
+const Timeline = dynamic(() => import("@/components/Timeline"), {
+  loading: () => null,
+});
+const ProjectsSection = dynamic(() => import("@/components/ProjectsSection"), {
+  loading: () => null,
+});
+const BlogSection = dynamic(() => import("@/components/BlogSection"), {
+  loading: () => null,
+});
+
+export const metadata: Metadata = {
+  title: "Darren Prasetya",
+  description: "Darren Prasetya is an AI Software Engineer with experience in LLM development, full-stack applications, and machine learning.",
+  openGraph: {
+    title: "Darren Prasetya",
+    description: "Darren Prasetya is an AI Software Engineer with experience in LLM development, full-stack applications, and machine learning.",
+    images: ["/og-image.jpg"],
+    type: "website",
+    url: "https://portfolio-darren.vercel.app/",
+    siteName: "Darren Prasetya",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Darren Prasetya", 
+    description: "Darren Prasetya is an AI Software Engineer with experience in LLM development, full-stack applications, and machine learning.",
+    images: ["/og-image.jpg"],
+  },
+  alternates: {
+    canonical: "https://portfolio-darren.vercel.app/",
+  },
+};
 
 export default function Home() {
   return (

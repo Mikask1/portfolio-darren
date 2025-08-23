@@ -1,5 +1,3 @@
-"use client";
-
 import { Badge, badgeVariants } from "@/components/ui/badge";
 import type { VariantProps } from "class-variance-authority";
 import type { IconType } from "react-icons";

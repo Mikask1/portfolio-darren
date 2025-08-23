@@ -48,33 +48,33 @@
 }
 
 .dark {
-  /* Dark theme */
-  --background: oklch(0.145 0 0); /* Deep navy / black */
-  --foreground: #E6E6E6; /* Light Gray */
-  
-  --card: #29353C;        /* Charcoal Navy */
-  --card-foreground: #E6E6E6; /* Light Gray */
-  
-  --popover: #29353C;         /* Charcoal Navy */
-  --popover-foreground: #E6E6E6; /* Light Gray */
+  /* Enhanced Dark theme with better contrast for frosted glass */
+  --background: oklch(0.12 0.008 240); /* Deeper navy for better contrast */
+  --foreground: #F8F9FA; /* Slightly brighter white for better readability */
 
-  --primary: #AAC7D8;    /* Powder Blue */
-  --primary-foreground: #29353C;   /* Charcoal Navy */
+  --card: oklch(0.18 0.015 240);        /* Enhanced charcoal navy */
+  --card-foreground: #F1F3F4; /* Brighter text on cards */
 
-  --secondary: #768A96;  /* Steel Gray */
-  --secondary-foreground: #E6E6E6; /* Light Gray */
+  --popover: oklch(0.18 0.015 240);         /* Enhanced charcoal navy */
+  --popover-foreground: #F1F3F4; /* Brighter text */
 
-  --muted: #44576D;      /* Slate Blue */
-  --muted-foreground: #AAC7D8;   /* Powder Blue */
+  --primary: #B8D4E3;    /* Enhanced powder blue */
+  --primary-foreground: #1A2530;   /* Darker navy for contrast */
 
-  --accent: #DFEBF6;     /* Ice Blue */
-  --accent-foreground: #29353C;    /* Charcoal Navy */
-  
+  --secondary: #7A8FA4;  /* Enhanced steel gray */
+  --secondary-foreground: #F8F9FA; /* Bright white */
+
+  --muted: #4A5B70;      /* Enhanced slate blue */
+  --muted-foreground: #B8D4E3;   /* Enhanced powder blue */
+
+  --accent: #E8F4F8;     /* Enhanced ice blue */
+  --accent-foreground: #1A2530;    /* Darker navy for contrast */
+
   --destructive: oklch(0.704 0.191 22.216);
 
-  --border: #44576D;      /* Slate Blue */
-  --input: #44576D;        /* Slate Blue */
-  --ring: #AAC7D8;        /* Powder Blue */
+  --border: #4A5B70;      /* Enhanced slate blue */
+  --input: #4A5B70;        /* Enhanced slate blue */
+  --ring: #B8D4E3;        /* Enhanced powder blue */
 
   --chart-1: oklch(0.488 0.243 264.376);
   --chart-2: oklch(0.696 0.17 162.48);
@@ -181,26 +181,80 @@ body {
   width: 100%;
 }
 
-/* Frosted glass utilities */
+/* Enhanced Frosted Glass Utilities */
 .frosted-glass {
-  backdrop-filter: blur(12px) saturate(180%);
-  background-color: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(16px) saturate(180%) brightness(1.1);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.08) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.1);
 }
 
 .frosted-glass-dark {
-  backdrop-filter: blur(12px) saturate(180%);
-  background-color: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(16px) saturate(180%) brightness(0.95);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.frosted-glass-subtle {
+  backdrop-filter: blur(8px) saturate(150%);
+  background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Subtle texture overlay */
+.frosted-glass-subtle-dark {
+  backdrop-filter: blur(8px) saturate(150%);
+  background: rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.frosted-glass-card {
+  backdrop-filter: blur(12px) saturate(160%);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.05) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow:
+    0 4px 24px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+.frosted-glass-card-dark {
+  backdrop-filter: blur(12px) saturate(160%);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.02) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow:
+    0 4px 24px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+/* Enhanced texture overlays */
 .texture-overlay {
-  background-image: 
+  background-image:
     radial-gradient(circle at 1px 1px, rgba(255,255,255,0.15) 1px, transparent 0),
     radial-gradient(circle at 2px 2px, rgba(255,255,255,0.08) 1px, transparent 0);
   background-size: 20px 20px, 40px 40px;
   background-position: 0 0, 10px 10px;
+}
+
+.texture-overlay-subtle {
+  background-image:
+    radial-gradient(circle at 1px 1px, rgba(255,255,255,0.08) 1px, transparent 0),
+    radial-gradient(circle at 3px 3px, rgba(255,255,255,0.04) 1px, transparent 0);
+  background-size: 30px 30px, 60px 60px;
+  background-position: 0 0, 15px 15px;
+}
+
+.texture-overlay-dark {
+  background-image:
+    radial-gradient(circle at 1px 1px, rgba(255,255,255,0.06) 1px, transparent 0),
+    radial-gradient(circle at 2px 2px, rgba(255,255,255,0.03) 1px, transparent 0);
+  background-size: 25px 25px, 45px 45px;
+  background-position: 0 0, 12px 12px;
 }
 
 @layer base {
@@ -209,10 +263,23 @@ body {
   }
   body {
     @apply bg-background text-foreground;
-    /* Add subtle texture to body background */
-    background-image: 
-      radial-gradient(circle at 20% 80%, rgba(120, 138, 150, 0.03) 0%, transparent 50%),
-      radial-gradient(circle at 80% 20%, rgba(120, 138, 150, 0.03) 0%, transparent 50%);
+    /* Enhanced background with animated textures and subtle gradients */
+    background-image:
+      radial-gradient(circle at 20% 80%, rgba(120, 138, 150, 0.04) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(120, 138, 150, 0.04) 0%, transparent 50%),
+      radial-gradient(circle at 40% 30%, rgba(170, 199, 216, 0.02) 0%, transparent 40%),
+      radial-gradient(circle at 60% 70%, rgba(120, 138, 150, 0.02) 0%, transparent 40%);
     background-attachment: fixed;
+    background-size: 100% 100%, 120% 120%, 80% 80%, 90% 90%;
+    animation: subtleBackgroundShift 20s ease-in-out infinite alternate;
+  }
+}
+
+@keyframes subtleBackgroundShift {
+  0% {
+    background-position: 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+  }
+  100% {
+    background-position: 2% 2%, -2% -2%, 1% 1%, -1% -1%;
   }
 }

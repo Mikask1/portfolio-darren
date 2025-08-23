@@ -8,8 +8,9 @@ export default function Home() {
     <main className="font-sans min-h-screen relative">
              {/* Unified frosted glass texture wrapper - scrolls naturally with content */}
        <div className="pointer-events-none absolute inset-0 -z-10 min-h-full">
-         {/* Base texture overlay - optimized for both themes */}
-         <div className="absolute inset-0 min-h-full opacity-20 texture-overlay dark:opacity-15" />
+         {/* Enhanced texture overlay with multiple layers for depth */}
+         <div className="absolute inset-0 min-h-full opacity-25 texture-overlay dark:opacity-20" />
+         <div className="absolute inset-0 min-h-full opacity-15 texture-overlay-subtle dark:opacity-12 dark:texture-overlay-dark" />
          {/* Gradient layers for depth - light mode uses subtle shadows, dark mode uses subtle highlights */}
          <div className="absolute inset-0 min-h-full bg-gradient-to-br from-black/2 via-transparent to-black/1.5 backdrop-blur-[0.5px] dark:from-white/1 dark:to-white/0.5" />
          <div className="absolute inset-0 min-h-full bg-gradient-to-tl from-black/1 via-transparent to-black/2 dark:from-white/0.5 dark:to-white/1" />

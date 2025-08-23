@@ -7,7 +7,15 @@ function Card({ className, ...props }: React.ComponentProps<"div">) {
     <div
       data-slot="card"
       className={cn(
-        "bg-card text-card-foreground flex flex-col gap-6 rounded-xl border py-6 shadow-sm",
+        "text-card-foreground flex flex-col gap-6 rounded-xl border py-6 shadow-sm transition-all duration-300",
+        // Enhanced frosted glass effect
+        "bg-gradient-to-br from-white/12 to-white/6 backdrop-blur-sm border-white/20",
+        "dark:from-white/6 dark:to-white/3 dark:border-white/12",
+        "hover:from-white/18 hover:to-white/9 hover:border-white/30 hover:backdrop-blur-md",
+        "dark:hover:from-white/9 dark:hover:to-white/4 dark:hover:border-white/18",
+        // Add subtle texture overlay
+        "relative before:absolute before:inset-0 before:pointer-events-none before:opacity-20 before:bg-[radial-gradient(circle_at_1px_1px,rgba(255,255,255,0.08)_1px,transparent_0)] before:bg-[length:25px_25px] before:rounded-xl",
+        "dark:before:opacity-15 dark:before:bg-[radial-gradient(circle_at_1px_1px,rgba(255,255,255,0.04)_1px,transparent_0)]",
         className
       )}
       {...props}

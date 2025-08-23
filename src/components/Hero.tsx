@@ -31,7 +31,7 @@ export default function Hero() {
 			<div className="container-px mx-auto max-w-6xl py-16 pt-8 sm:py-24">
 				<div className="grid items-center gap-10 md:grid-cols-2">
 					<div className="relative">
-						<div className="inline-flex items-center gap-2 rounded-full border border-border/50 bg-card px-3 py-1 text-[12px] text-muted-foreground shadow-sm">
+						<div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-gradient-to-r from-white/10 to-white/8 backdrop-blur-sm px-3 py-1 text-[12px] text-muted-foreground shadow-sm transition-all duration-300 hover:from-white/15 hover:to-white/12 hover:border-white/30">
 							<span className="size-2 rounded-full bg-green-400" />
 							Available for work
 						</div>
@@ -69,7 +69,7 @@ export default function Hero() {
 										<TooltipTrigger asChild>
 											<a
 												href={href}
-												className="inline-flex size-10 items-center justify-center rounded-full border border-border/50 bg-card text-foreground shadow-sm transition-colors hover:border-border"
+												className="inline-flex size-10 items-center justify-center rounded-full border border-white/20 bg-gradient-to-br from-white/10 to-white/8 backdrop-blur-sm text-foreground shadow-sm transition-all duration-300 hover:border-white/30 hover:from-white/15 hover:to-white/12 hover:scale-110"
 												target={href.startsWith("http") ? "_blank" : undefined}
 												rel={href.startsWith("http") ? "noreferrer" : undefined}
 											>
@@ -80,10 +80,10 @@ export default function Hero() {
 									</Tooltip>
 								))}
 							</TooltipProvider>
-							<Button asChild className="ml-2">
+							<Button asChild className="ml-2 glass-glow">
 								<a href="mailto:darrenprasetya40@gmail.com">Contact me</a>
 							</Button>
-							<Button asChild variant="outline">
+							<Button asChild variant="outline" className="glass-glow">
 								<a href="https://docs.google.com/document/d/1j2mMwVqBXA0Xe8mZLh0Ozkv-rJcuz31LMBWSD5SqAbo/edit?usp=sharing" target="_blank" rel="noreferrer">View CV</a>
 							</Button>
 						</div>

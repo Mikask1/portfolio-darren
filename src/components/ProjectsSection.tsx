@@ -57,7 +57,7 @@ export default function ProjectsSection() {
 							viewport={{ once: true, margin: "-80px" }}
 							transition={{ duration: 0.5, delay: i * 0.06 }}
 						>
-							<Card className="group relative overflow-hidden border-border/10 bg-card/70 p-4 shadow-lg transition-all hover:shadow-xl">
+							<Card className="group relative overflow-hidden border-border/20 p-4 shadow-lg glass-hover-scale glass-glow">
 								<div className="relative aspect-video overflow-hidden rounded-md border border-border/10 bg-accent-foreground shadow-sm">
 									{p.image ? (
 										<Image src={p.image} alt={p.title} fill className="object-contain p-6 dark:invert" />

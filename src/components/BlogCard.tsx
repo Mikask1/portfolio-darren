@@ -31,7 +31,7 @@ export default function BlogCard({ p, i }: BlogCardProps) {
             variants={item}
             whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
             transition={{ duration: 0.45, delay: i * 0.05 }}
-            className="group relative"
+            className="group relative glass-glow"
         >
             <Link
                 href={href}
@@ -58,10 +58,20 @@ export default function BlogCard({ p, i }: BlogCardProps) {
 const Card = ({ className, children }: ComponentProps<"div">) => (
     <div
         className={cn(
-            "h-full w-full overflow-hidden rounded-xl border border-transparent bg-background p-6 text-card-foreground shadow-sm dark:border-white/[0.2] dark:hover:border-slate-700",
+            "h-full w-full overflow-hidden rounded-xl border border-transparent p-6 text-card-foreground shadow-sm transition-all duration-300 hover:shadow-lg",
+            // Enhanced frosted glass effect with better hover states
+            "bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm border-white/20",
+            "dark:from-white/5 dark:to-white/2 dark:border-white/10",
+            "hover:from-white/15 hover:to-white/8 hover:border-white/30 hover:backdrop-blur-md",
+            "dark:hover:from-white/8 dark:hover:to-white/3 dark:hover:border-white/15",
+            // Add subtle texture overlay
+            "relative before:absolute before:inset-0 before:pointer-events-none before:opacity-30 before:bg-[radial-gradient(circle_at_1px_1px,rgba(255,255,255,0.1)_1px,transparent_0)] before:bg-[length:20px_20px]",
+            "dark:before:opacity-20 dark:before:bg-[radial-gradient(circle_at_1px_1px,rgba(255,255,255,0.05)_1px,transparent_0)]",
             className
         )}
     >
-        {children}
+        <div className="relative z-10">
+            {children}
+        </div>
     </div>
 );

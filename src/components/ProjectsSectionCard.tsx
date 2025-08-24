@@ -1,9 +1,9 @@
 import Image from "next/image"
-import { LuCode, LuExternalLink } from "react-icons/lu"
 import SkillBadge from "./SkillBadge"
 import { Button } from "./ui/button"
 import { Card } from "./ui/card"
 import { Project } from "./ProjectsSection"
+import { Code, ExternalLink } from "lucide-react"
 
 const ProjectsSectionCard = ({ p }: { p: Project }) => {
     return (
@@ -37,14 +37,14 @@ const ProjectsSectionCard = ({ p }: { p: Project }) => {
                 {p.github ? (
                     <Button asChild variant="outline" size="sm">
                         <a href={p.github} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2">
-                            <LuCode size={16} /> Code
+                            <Code size={16} /> Code
                         </a>
                     </Button>
                 ) : null}
                 {p.demo ? (
                     <Button asChild size="sm">
                         <a href={p.demo} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2">
-                            <LuExternalLink size={16} /> Live
+                            <ExternalLink size={16} /> Live
                         </a>
                     </Button>
                 ) : null}

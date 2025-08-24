@@ -1,8 +1,8 @@
 import { cn } from "@/lib/utils";
 import { ComponentProps } from "react";
-import { LuExternalLink, LuArrowRight } from "react-icons/lu";
 import { Post } from "@/lib/blogData";
 import Link from "next/link";
+import { ArrowRight, ExternalLink } from "lucide-react";
 
 export const BlogCard = ({ p }: { p: Post }) => {
     const href = p.isExternal ? p.link! : `/blogs/${p.slug}`;
@@ -19,7 +19,7 @@ export const BlogCard = ({ p }: { p: Post }) => {
                         <p className="mt-1 text-xs sm:text-sm text-muted-foreground whitespace-pre-line">{p.desc}</p>
                     </div>
                     <div className="flex items-center">
-                        {p.isExternal ? <LuExternalLink size={16} /> : <LuArrowRight size={16} />}
+                        {p.isExternal ? <ExternalLink size={16} /> : <ArrowRight size={16} />}
                     </div>
                 </div>
                 <div className="pointer-events-none absolute -right-14 -top-14 size-28 rounded-full bg-accent/20 blur-2xl transition-transform group-hover:translate-x-2 group-hover:-translate-y-1" />

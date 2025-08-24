@@ -4,7 +4,7 @@ import { JSX } from "react";
 import TimelineRow from "./TimelineRow";
 
 export type TimelineItem = {
-	year: string;
+	year: string;	
 	image: string;
 	title: string;
 	subtitle: string;

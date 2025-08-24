@@ -1,6 +1,10 @@
 import type { NextConfig } from "next";
 
-const nextConfig: NextConfig = {
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.ANALYZE === 'true',
+});
+
+const nextConfig: NextConfig = withBundleAnalyzer({
   reactStrictMode: true,
   poweredByHeader: false,
   productionBrowserSourceMaps: false,
@@ -10,9 +14,8 @@ const nextConfig: NextConfig = {
   },
   experimental: {
     optimizePackageImports: [
-      "lucide-react",
-      "react-icons",
       "framer-motion",
+      "simple-icons",
     ],
   },
   async headers() {
@@ -24,7 +27,6 @@ const nextConfig: NextConfig = {
         ],
       },
       {
-        // Cache public images aggressively (can be adjusted per deployment needs)
         source: "/:all*(png|jpg|jpeg|gif|svg|webp|avif)",
         headers: [
           { key: "Cache-Control", value: "public, max-age=31536000, immutable" },
@@ -39,8 +41,8 @@ const nextConfig: NextConfig = {
     ];
   },
   compiler: {
-    removeConsole: process.env.NODE_ENV === "production" ? { exclude: ["error", "warn"] } : false,
+    removeConsole: process.env.NODE_ENV === "production" ? { exclude: ["error", "warn", "info"] } : false,
   },
-};
+});
 
 export default nextConfig;

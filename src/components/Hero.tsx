@@ -3,9 +3,8 @@
 import Image from "next/image";
 import { motion, AnimatePresence, useMotionValue, useMotionTemplate, useTransform, useSpring } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
-import { LuGithub, LuLinkedin } from "react-icons/lu";
 import { useEffect, useState } from "react";
+import { Github, Linkedin } from "lucide-react";
 
 const titles = [
 	"Hi, my name is Darren",
@@ -79,26 +78,20 @@ export default function Hero() {
 							Building agentic systems, production LLM pipelines, and polished user experiences. I blend solid software engineering with ML tooling to ship fast, reliable AI products.
 						</p>
 						<div className="mt-6 flex items-center gap-4">
-							<TooltipProvider>
-								{[
-									{ href: "https://github.com/Mikask1", label: "GitHub", Icon: LuGithub },
-									{ href: "https://linkedin.com/in/darren-prasetya/", label: "LinkedIn", Icon: LuLinkedin },
-								].map(({ href, label, Icon }) => (
-									<Tooltip key={label}>
-										<TooltipTrigger asChild>
-											<a
-												href={href}
-												className="inline-flex size-10 items-center justify-center rounded-full border border-white/20 bg-gradient-to-br from-white/10 to-white/8 backdrop-blur-sm text-foreground shadow-sm transition-all duration-300 hover:border-white/30 hover:from-white/15 hover:to-white/12 hover:scale-110"
-												target={href.startsWith("http") ? "_blank" : undefined}
-												rel={href.startsWith("http") ? "noreferrer" : undefined}
-											>
-												<Icon size={18} />
-											</a>
-										</TooltipTrigger>
-										<TooltipContent side="top">{label}</TooltipContent>
-									</Tooltip>
-								))}
-							</TooltipProvider>
+							{[
+								{ href: "https://github.com/Mikask1", label: "GitHub", Icon: Github },
+								{ href: "https://linkedin.com/in/darren-prasetya/", label: "LinkedIn", Icon: Linkedin },
+							].map(({ href, label, Icon }) => (
+								<a
+									key={label}
+									href={href}
+									className="inline-flex size-10 items-center justify-center rounded-full border border-white/20 bg-gradient-to-br from-white/10 to-white/8 backdrop-blur-sm text-foreground shadow-sm transition-all duration-300 hover:border-white/30 hover:from-white/15 hover:to-white/12 hover:scale-110"
+									target={href.startsWith("http") ? "_blank" : undefined}
+									rel={href.startsWith("http") ? "noreferrer" : undefined}
+								>
+									<Icon size={18} />
+								</a>
+							))}
 							<Button asChild className="ml-2 glass-glow transition-transform hover:scale-105 active:scale-[0.98]">
 								<a href="mailto:darrenprasetya40@gmail.com">Contact me</a>
 							</Button>

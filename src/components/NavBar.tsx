@@ -31,6 +31,14 @@ const NavBar = () => {
                 >
                     Blogs
                 </Link>
+                <Link
+                    href="/website"
+                    prefetch={false}
+                    className={`hover:opacity-100 underline-ltr ${pathname === "/website" ? "opacity-100 underline-active" : "opacity-80"
+                        }`}
+                >
+                    Website Generator
+                </Link>
                 <a
                     href="mailto:darrenprasetya40@gmail.com"
                     className="hover:opacity-100 opacity-80 underline-ltr"

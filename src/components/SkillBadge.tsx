@@ -1,6 +1,6 @@
 import { Badge, badgeVariants } from "@/components/ui/badge";
 import type { VariantProps } from "class-variance-authority";
-import type { JSX, SVGProps } from "react";
+import type { SVGProps } from "react";
 import {
 	Cpu,
 	Search,
